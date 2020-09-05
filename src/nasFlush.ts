@@ -161,7 +161,7 @@ export default class NasFlush {
         const busSearchAnylyzer = BusSearchAnylyzer.getInstance();
         const busSearchSpider = new Spider(busSearchAnylyzer);
 
-        const url = `https://www.javbus.cloud/search/${chepai}&type=&parent=ce`;
+        const url = `https://www.buscdn.one/search/${chepai}&type=&parent=ce`;
         return await busSearchSpider.get(url);
     }
 
@@ -174,10 +174,10 @@ export default class NasFlush {
             url,
             {
                 offset: 0,
-                limit: 10,
+                limit: 300,
                 sort_by: 'added',
                 sort_direction: 'desc',
-                library_id: 1,
+                library_id: 4,
                 additional: JSON.stringify([
                     'poster_mtime',
                     'summary',
