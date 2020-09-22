@@ -1,4 +1,6 @@
 import superagent from 'superagent';
+const charset = require('superagent-charset');
+const superagentC = charset(require('superagent'));
 export interface Anylyzer {
     anylyse: (html: string) => any;
 }
@@ -15,13 +17,17 @@ export default class Spider {
     constructor(private anylyzer: Anylyzer | null) {}
 
     async get(url: string, headers?: IHeaders) {
-        let request = superagent.get(url);
+        let request = superagentC.get(url).charset('gbk');
         if (headers) {
             request = request.set(headers);
         }
-        const result = await request.catch(e => {
+        const result = await request.catch((e: any) => {
             console.log(e.status);
-            return null;
+            return new Promise((res) => {
+                setTimeout(() => {
+                    res(this.get(url, headers));
+                }, 3000);
+            });
         });
         return (
             (this.anylyzer &&
@@ -35,7 +41,7 @@ export default class Spider {
             .post(url)
             .set(headers)
             .send(data)
-            .catch(e => {
+            .catch((e) => {
                 console.log(e.status);
                 return null;
             });
