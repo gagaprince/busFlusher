@@ -34,4 +34,6 @@ node_modules
 
 template-temp
 
+photo/
+
 .vscode/

@@ -17,9 +17,8 @@ export default class NasFlush {
     }
 
     async beginExec() {
-        const mainInfos:
-            | IMoiveMainInfo[]
-            | undefined = await this.getMovieInfo();
+        const mainInfos: IMoiveMainInfo[] | undefined =
+            await this.getMovieInfo();
         if (mainInfos) {
             mainInfos.forEach(async (mainInfo: IMoiveMainInfo) => {
                 const totalInfo = await this.getBusInfo(mainInfo);
@@ -50,7 +49,7 @@ export default class NasFlush {
         const { id, title, cate, av } = totalInfo;
         const nasSpider = new Spider(null);
         const data = {
-            library_id: 1,
+            library_id: 4,
             target: '"video"',
             id,
             title: `"${title.substring(0, 42)}"`,
@@ -87,7 +86,7 @@ export default class NasFlush {
             target: '"url"',
             id,
             type: '"movie"',
-            url: smallImg,
+            url: `https://www.javbus.com${smallImg}`,
             api: 'SYNO.VideoStation2.Poster',
             method: 'set',
             version: 1,
@@ -110,7 +109,7 @@ export default class NasFlush {
             image: '"url"',
             id,
             type: '"movie"',
-            url: bigImg,
+            url: `https://www.javbus.com${bigImg}`,
             api: 'SYNO.VideoStation2.Backdrop',
             method: 'add',
             version: 1,
@@ -129,9 +128,8 @@ export default class NasFlush {
         console.log(id);
         console.log(chepai);
         if (chepai) {
-            const basicinfo:
-                | IBusBisicInfo
-                | undefined = await this.getBusInfoByChePai(chepai);
+            const basicinfo: IBusBisicInfo | undefined =
+                await this.getBusInfoByChePai(chepai);
             if (basicinfo) {
                 const detailInfo = await this.getDetailInfo(basicinfo);
                 if (detailInfo) {
@@ -151,9 +149,8 @@ export default class NasFlush {
         const busDetailAnylyzer = BusDetailAnylyzer.getInstance();
         const busSearchSpider = new Spider(busDetailAnylyzer);
 
-        const detailInfo:
-            | IBusDetailInfo
-            | undefined = await busSearchSpider.get(href);
+        const detailInfo: IBusDetailInfo | undefined =
+            await busSearchSpider.get(href);
         return detailInfo;
     }
 
@@ -161,7 +158,7 @@ export default class NasFlush {
         const busSearchAnylyzer = BusSearchAnylyzer.getInstance();
         const busSearchSpider = new Spider(busSearchAnylyzer);
 
-        const url = `https://www.buscdn.one/search/${chepai}&type=&parent=ce`;
+        const url = `https://www.javbus.com/search/${chepai}&type=&parent=ce`;
         return await busSearchSpider.get(url);
     }
 
@@ -174,7 +171,7 @@ export default class NasFlush {
             url,
             {
                 offset: 0,
-                limit: 300,
+                limit: 30,
                 sort_by: 'added',
                 sort_direction: 'desc',
                 library_id: 4,
