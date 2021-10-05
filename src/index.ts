@@ -13,5 +13,8 @@
 
 // nasFlush.beginExec();
 
-import photoSpider from './photoSpider/index';
-photoSpider.beginSpider();
+// import photoSpider from './photoSpider/index';
+// photoSpider.beginSpider();
+
+import mp3Spider from './mp3Spider';
+mp3Spider.beginSpider();

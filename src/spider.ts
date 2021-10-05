@@ -17,7 +17,7 @@ export default class Spider {
     constructor(private anylyzer: Anylyzer | null) {}
 
     async get(url: string, headers?: IHeaders) {
-        let request = superagentC.get(url).charset('gbk');
+        let request = superagentC.get(url).charset('utf-8');
         if (headers) {
             request = request.set(headers);
         }
