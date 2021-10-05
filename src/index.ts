@@ -2,11 +2,11 @@ import NasFlush from './nasFlush';
 
 const nasFlush = new NasFlush({
     url: 'http://gaga.pc.com/webapi/entry.cgi',
-    cookie: 'stay_login=1; id=tdmzf2QWh3HysYq30ZR-AU8oCACU4qbeQaZk6dDEizAWljqM6qyU0deRh0IT-wu1PMji-8KiDTR2-KFBBsZeQg; smid=eCXVkCrnB4PyEHnhoB5dFf67c3P0MS9lnVyv9ncf2y_7mKvs3vgdue6P5CXDCHsb4tfex99a-S_a9mh4d6yiLg',
-    token: '3OPvmKBIt5S4Q',
+    cookie: 'stay_login=1; id=ymgwvp0fyNjq-JgGfawtqjUj1JkC1syG3gIepLtCs-gumzuMQUV-Q9yxQE-_IlwOpNlZSTnzAdM2MYWziTdUjg; smid=YPr7NlVUNXphPE7SAExA1oAdzRUno77RYfdlexvCxgj9_7QyaAFFGCBpdZMM53VkCN5HwHQ1z52AqwPLNEnUoQ',
+    token: 'Qe4WVbmqjUFwc',
     ua: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36',
     referer:
-        'http://gaga.pc.com/?launchApp=SYNO.SDS.VideoStation.AppInstance&SynoToken=3OPvmKBIt5S4Q',
+        'http://gaga.pc.com/?launchApp=SYNO.SDS.VideoStation.AppInstance&SynoToken=Qe4WVbmqjUFwc',
 });
 
 nasFlush.beginExec();
